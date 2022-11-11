@@ -7,8 +7,7 @@ import { IBondManager } from "./interfaces/IBondManager.sol";
 contract BondManager is IBondManager {
     mapping(address => bool) allowed;
     mapping(address => uint) bonds;
-    // Note : if deployed on Ethereum Mainnet, change to 8 (ETH), if deployed on Polygon, keep it at 1600 (MATIC)
-    uint128 private minimalBondAmount = 1600000000000000000000;
+    uint128 private minimalBondAmount = 8000000000000000000;
 
     function isAllowed(address addr) view private returns(bool){
         if (allowed[addr]) {
