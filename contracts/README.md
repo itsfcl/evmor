@@ -1,1 +1,1 @@
-# molygon-contracts
+# contracts
