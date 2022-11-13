@@ -1,5 +1,5 @@
 # evmor
-The rollup adventure, with a few twists
+The rollup adventure (some calls it fcl's delirium), with a few twists
 
 Overview :
  - JS/TS only for client (anything actually good is banned)
