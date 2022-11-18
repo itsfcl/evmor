@@ -7,7 +7,7 @@ interface Connection {
     light: boolean;
 }
 
-class NetCore {
+export class NetCore {
 
     public knownAddresses: Connection[] = [];
 
@@ -15,7 +15,7 @@ class NetCore {
 
     public launch(port: number, processCallback: (msg: string) => void) {
         let server = net.createServer((socket) => {
-            socket.write('N1 launched');
+            socket.write('Server launched');
             socket.pipe(socket);
         });
         
@@ -44,6 +44,10 @@ class NetCore {
         this.sockets.forEach(async socket => {
             socket.write(msg);
         });
-    } 
+    }
+
+    public addPeer(port: number,ip: string,bootstrapped: boolean,light: boolean) {
+        this.knownAddresses.push({port, ip, bootstrapped, light});
+    }
 
 }

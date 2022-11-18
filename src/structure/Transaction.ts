@@ -1,5 +1,6 @@
 
 class Transaction {
+    // All of these are numbers, used string because hex
     constructor(
         public to: string,
         public from: string,

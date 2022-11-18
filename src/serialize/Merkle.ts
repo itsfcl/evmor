@@ -6,11 +6,10 @@ const zhash = hash("0");
 class Merkle {
     // TODO : optimization
     zhash = hash("0");
-    public static generateHashSet<T>(data: T[]) {
+    public static generateHashSet(data: Object[]) {
         let hashset: string[][] = []; 
         let l = 0;
-        // TODO : better serialization
-        hashset[0] = data.map(e => hash(JSON.stringify(e)));
+        hashset[0] = data.map(e => hash(Serialize.serializeObject(e)));
         while (hashset[l].length>1) {
             if (hashset[l].length%2===1) hashset[l].push(zhash);
             for (let i = 0; i<hashset[l].length; i+=2) {
