@@ -19,7 +19,20 @@ class Merkle {
                     hashset[l+1].push(hash(hashset[l][i] + hashset[l][i+1]));
                 }
             }
+            l+=1;
         }
         return hashset;
+    }
+
+    public static verify(data: string[], root: string, chunk: Object) {
+        let sh = hash(Serialize.serializeObject(chunk));
+        for (let i of data) {
+            if (parseInt(sh, 16) > parseInt(i, 16)) {
+                sh = hash(sh + i)
+            } else {
+                sh = hash(i + sh);
+            }
+        }
+        return root === sh;
     }
 }

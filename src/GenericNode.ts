@@ -13,7 +13,6 @@ class GenericNode {
 
         });
     }
-    //TODO : Add proper serialization
     public propagate(tx: Transaction) {
         this.netmodule.message(Serialize.serializeObject(tx));
     }
